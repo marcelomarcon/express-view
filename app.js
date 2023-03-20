@@ -6,6 +6,7 @@ const app = express();
 
 // Routes imports
 const homeRouter = require("./routes/home");
+const loginRouter = require("./routes/login");
 
 // Env variables
 dotenv.config();
@@ -19,8 +20,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.use("/home", homeRouter);
+app.use("/login", loginRouter);
+
 
 // Running the server
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log("Running on port 3000");
 });
