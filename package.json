@@ -1,0 +1,23 @@
+{
+  "name": "login-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js -e *",
+    "sass": "sass --no-source-map --watch styles/main.scss public/css/main.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "sass": "^1.59.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
