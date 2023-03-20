@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const path = require("path");
 
-router.get("/home", (req, res) => {
-  res.render("home.ejs", { message: "Render from router" });
+router.get("/", (req, res) => {
+  res.render(path.join(__dirname, "../", "views", "home.ejs"), {
+    message: "Rélou Uordi!",
+  });
 });
 
-
-module.exports = router
+module.exports = router;

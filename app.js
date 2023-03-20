@@ -11,13 +11,8 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.engine("html", require("ejs").renderFile);
 
-// app.get("/home", (req, res) => {
-//   res.render("../views/home");
-// });
-
 // Routes
-app.use("/", homeRouter);
-
+app.use("/home", homeRouter);
 
 // Running the server
 app.listen(3000, () => {
