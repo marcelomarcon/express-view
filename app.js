@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 
 const mongoose = require("./database/config");
+const handleNotFound = require('./middlewares/NotFoundMiddleware')
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use(
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(handleNotFound);
 
 // Routers
 app.use("/home", homeRouter);
