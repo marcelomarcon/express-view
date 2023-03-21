@@ -15,7 +15,7 @@ const postLoginPage = async (req, res, next) => {
     const user = await User.findOne({ username: lusername });
     if (!user) {
       return res
-        .status(401)
+        .status(400)
         .render(path.join(__dirname, "../", "views", "form.ejs"), {
           message: "Invalid username or password!",
         });
@@ -24,7 +24,7 @@ const postLoginPage = async (req, res, next) => {
     const isMatch = await user.comparePassword(lpassword);
     if (!isMatch) {
       return res
-        .status(401)
+        .status(400)
         .render(path.join(__dirname, "../", "views", "form.ejs"), {
           message: "Invalid username or password!",
         });

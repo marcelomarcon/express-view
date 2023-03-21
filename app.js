@@ -5,7 +5,8 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 
 const mongoose = require("./database/config");
-const handleNotFound = require('./middlewares/NotFoundMiddleware')
+const handleNotFound = require("./middlewares/NotFoundMiddleware");
+const loginRequired = require("./middlewares/authMiddleware");
 
 const app = express();
 
@@ -33,11 +34,14 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.use(handleNotFound);
-
-// Routers
-app.use("/home", homeRouter);
+// Public Routes
 app.use("/", formRouter);
+app.use(handleNotFound);
+
+// Private Routes
+app.use(loginRequired);
+
+app.use("/home", homeRouter);
 
 // Running the server
 app.listen(process.env.PORT, () => {
