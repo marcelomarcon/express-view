@@ -13,44 +13,101 @@
         <h3 class="text-accent">3DViewer</h3>
         <!--     <div class="icon"></div> -->
         <div class="tabs">
-          <button class="btn-tab" data-index=login>Login</button>
+          <button class="btn-tab" data-index="login">Login</button>
           <button class="btn-tab" data-index="register">Register</button>
         </div>
-    
+
         <!--   Login   -->
-        <form action="/login" class="form__group active" data-index="login" id="form" method="post">
+        <form
+          action="/login"
+          class="form__group active"
+          data-index="login"
+          id="form"
+          method="post"
+        >
           <div class="form__group-wrapper">
             <label class="form-label" for="lusername">Username</label>
-            <input type="text" id="lusername" name="lusername" class="form__input" required/>
+            <input
+              type="text"
+              id="lusername"
+              name="lusername"
+              class="form__input"
+              required
+            />
           </div>
           <div class="form__group-wrapper">
             <label class="form-label" for="lpassword">Password</label>
-            <input type="text" id="lpassword" name="lpassword" class="form__input" required />
+            <input
+              type="text"
+              id="lpassword"
+              name="lpassword"
+              class="form__input"
+              required
+            />
           </div>
           <button type="submit" class="btn btn-primary">Login</button>
+
+          <% if (message) { %>
+          <span class="message"><%= message %></span>
+          <% } %>
         </form>
-    
+
         <!--  Register    -->
-        <form action="/register" class="register__group" data-index="register" id="register" method="post">
+        <form
+          action="/register"
+          class="register__group"
+          data-index="register"
+          id="register"
+          method="post"
+        >
           <div class="form__group-wrapper">
             <label class="form-label" for="username">Username</label>
-            <input type="text" id="username" name="username" class="form__input" required />
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="form__input"
+              required
+            />
           </div>
           <div class="form__group-wrapper">
             <label class="form-label" for="email">Email</label>
-            <input type="email" id="email" name="email" class="form__input" required/>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form__input"
+              required
+            />
           </div>
           <div class="form__group-wrapper">
             <label class="form-label" for="password">Password</label>
-            <input type="password" id="password" name="password" class="form__input" required />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form__input"
+              required
+            />
           </div>
           <div class="form__group-wrapper">
-            <label class="form-label" for="confirm_password">Confirm Password</label>
-            <input type="password" id="confirm_password" name="confirm_password" class="form__input" required />
+            <label class="form-label" for="confirm_password"
+              >Confirm Password</label
+            >
+            <input
+              type="password"
+              id="confirm_password"
+              name="confirm_password"
+              class="form__input"
+              required
+            />
           </div>
           <button type="submit" class="btn btn-primary">Register</button>
+          <% if (message) { %>
+          <span class="message"><%= message %></span>
+          <% } %>
         </form>
-    
+
         <a class="text-muted" href="#">Forgot your password?</a>
       </div>
     </div>
