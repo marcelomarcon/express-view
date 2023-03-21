@@ -2,16 +2,14 @@ const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
-const MongoStore = require("connect-mongo");
-const session = require("express-session");
 
-const mongooseConnection = require("./database/config");
+const mongoose = require('./database/config')
 
 const app = express();
 
-// Routes imports
+// Routers imports
 const homeRouter = require("./routes/home");
-const loginRouter = require("./routes/login");
+const formRouter = require("./routes/form");
 
 // Env variables
 dotenv.config();
@@ -25,9 +23,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Routes
+// Routers
 app.use("/home", homeRouter);
-app.use("/login", loginRouter);
+app.use("/", formRouter);
 
 // Running the server
 app.listen(process.env.PORT, () => {
