@@ -160,6 +160,10 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #1f8a70;
+  background-image: radial-gradient(#333 10%, transparent 20%);
+  background-size: 10px 10px;
+  background-position: 0 0, 30px 30px;
+  background-repeat: repeat;
 }
 .container .login__wrapper {
   position: relative;
@@ -223,7 +227,7 @@ body {
   font-size: 0.8rem;
   font-family: "Roboto", sans-serif;
   margin: 0;
-  color: rgb(71, 71, 71);
+  color: rgb(114, 114, 114);
 }
 .container .login__wrapper .form__group-wrapper .form__input,
 .container .login__wrapper .register__group-wrapper .form__input {
@@ -266,9 +270,9 @@ body {
   color: white;
   font-family: "Signika Negative", "Roboto", sans-serif;
   width: fit-content;
-  background-color: #3333dd;
+  background-color: rgba(58, 58, 128, 0.288);
   padding: 0.2rem;
-  border-radius: 0.2rem 0.7rem;
+  border-radius: 0.5rem 0.7rem;
   align-self: center;
   margin-bottom: 1rem;
 }
