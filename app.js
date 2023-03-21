@@ -32,7 +32,8 @@ app.use(
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(handleNotFound);
+
+// app.use(handleNotFound);
 
 // Routers
 app.use("/home", homeRouter);
