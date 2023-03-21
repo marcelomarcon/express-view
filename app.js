@@ -1,7 +1,11 @@
 const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv");
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
+const MongoStore = require("connect-mongo");
+const session = require("express-session");
+
+const mongooseConnection = require("./database/config");
 
 const app = express();
 
@@ -20,7 +24,6 @@ app.engine("html", require("ejs").renderFile);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// app.use(express.urlencoded());
 
 // Routes
 app.use("/home", homeRouter);

@@ -10,26 +10,50 @@
   <body>
     <div class="container">
       <div class="login__wrapper">
-        <div class="icon"></div>
-        <form action="/login" class="form__group" id="form" method="post">
-          <label class="form-label" for="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            class="form__input"
-          />
-          <label class="form-label" for="password">Password</label>
-          <input
-            type="text"
-            id="password"
-            name="password"
-            class="form__input"
-          />
-          <button type="submit" class="btn btn-primary">Submit</button>
+        <h3 class="text-accent">3DViewer</h3>
+        <!--     <div class="icon"></div> -->
+        <div class="tabs">
+          <button class="btn-tab" data-index=login>Login</button>
+          <button class="btn-tab" data-index="register">Register</button>
+        </div>
+    
+        <!--   Login   -->
+        <form action="/login" class="form__group active" data-index="login" id="form" method="post">
+          <div class="form__group-wrapper">
+            <label class="form-label" for="username">Username</label>
+            <input type="text" id="username" name="username" class="form__input" />
+          </div>
+          <div class="form__group-wrapper">
+            <label class="form-label" for="password">Password</label>
+            <input type="text" id="password" name="password" class="form__input" />
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
         </form>
+    
+        <!--  Register    -->
+        <form action="/register" class="register__group" data-index="register" id="register" method="post">
+          <div class="form__group-wrapper">
+            <label class="form-label" for="username">Username</label>
+            <input type="text" id="username" name="username" class="form__input" />
+          </div>
+          <div class="form__group-wrapper">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" name="email" class="form__input" />
+          </div>
+          <div class="form__group-wrapper">
+            <label class="form-label" for="password">Password</label>
+            <input type="text" id="password" name="password" class="form__input" />
+          </div>
+          <div class="form__group-wrapper">
+            <label class="form-label" for="confirm_password">Confirm Password</label>
+            <input type="text" id="confirm_password" name="confirm_password" class="form__input" />
+          </div>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    
         <a class="text-muted" href="#">Forgot your password?</a>
       </div>
     </div>
+    <script src="js/main.js" defer></script>
   </body>
 </html>

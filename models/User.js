@@ -1,28 +1,24 @@
+// models/User.js
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
-const UserSchema = new mongoose.Schema(
-  {
-    username: {
-      lowercase: true,
-      unique: true,
-      type: String,
-      required: true,
-    },
-    password: {
-      type: String,
-      required: true,
-      select: false
-    },
-    email: {
-      type: String,
-      unique: true,
-      require: true,
-      lowercase: true,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
+const UserSchema = new mongoose.Schema({
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+});
 
-module.exports = mongoose.model("Hamburger", UserSchema);
+// // Hash the password before saving
+// UserSchema.pre("save", async function (next) {
+//   if (this.isModified("password")) {
+//     this.password = await bcrypt.hash(this.password, 10);
+//   }
+//   next();
+// });
+
+// // Method to compare password
+// UserSchema.methods.comparePassword = function (password) {
+//   return bcrypt.compare(password, this.password);
+// };
+
+const User = mongoose.model("User", UserSchema);
+module.exports = User;
