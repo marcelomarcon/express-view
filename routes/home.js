@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const path = require("path");
 
-router.get("/", (req, res) => {
+const loginRequired = require("../middlewares/authMiddleware");
+
+router.get("/", loginRequired, (req, res) => {
   res.render(path.join(__dirname, "../", "views", "home.ejs"), {
     message: "Rélou Uordi!",
   });

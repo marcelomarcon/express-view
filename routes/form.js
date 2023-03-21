@@ -8,18 +8,20 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", async (req, res, next) => {
-  const { username, password } = req.body;
+  const { lusername, lpassword } = req.body;
 
   try {
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ username: lusername });
+    console.log(user); // Add this line to check the user object returned from the database
+
     if (!user) {
       return res.status(400).send("Invalid username or password");
     }
 
-    const isMatch = await user.comparePassword(password);
+    const isMatch = await user.comparePassword(lpassword);
 
     if (!isMatch) {
-      return res.status(400).send("Invalid username or password");
+      res.redirect("/login");
     }
 
     req.session.userId = user._id;

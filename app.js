@@ -2,8 +2,9 @@ const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
+const session = require("express-session");
 
-const mongoose = require('./database/config')
+const mongoose = require("./database/config");
 
 const app = express();
 
@@ -18,6 +19,14 @@ dotenv.config();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
+
+app.use(
+  session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
